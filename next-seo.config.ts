@@ -2,6 +2,8 @@ import { SITE_NAME, SITE_URL } from "@constants"
 import { NextSeoProps } from "next-seo"
 
 const SeoProps: NextSeoProps = {
+	defaultTitle: SITE_NAME,
+	titleTemplate: `%s — ${SITE_NAME}`,
 	description: SITE_NAME,
 	canonical: SITE_URL,
 	openGraph: {
