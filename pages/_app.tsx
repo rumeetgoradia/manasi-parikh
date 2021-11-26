@@ -1,4 +1,5 @@
 import { Chakra } from "@components/Chakra"
+import { Navbar } from "@components/Navbar"
 import theme from "@theme"
 import { DefaultSeo } from "next-seo"
 import SeoProps from "next-seo.config"
@@ -9,6 +10,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			<DefaultSeo {...SeoProps} />
 			<Chakra cookies={pageProps.cookies} theme={theme}>
+				<Navbar />
 				<Component {...pageProps} />
 			</Chakra>
 		</>
