@@ -15,7 +15,7 @@ const SeoProps: NextSeoProps = {
 		site_name: SITE_NAME,
 		images: [
 			{
-				url: `${SITE_URL}/images/card.png`,
+				url: `/images/card.png`,
 				width: 1200,
 				height: 628,
 				alt: SITE_NAME,
