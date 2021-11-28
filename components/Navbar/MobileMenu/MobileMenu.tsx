@@ -127,22 +127,21 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 								))}
 							</VStack>
 						</Flex>
-						<Box flexShrink={1} mb={10}>
+						<Flex flexShrink={1} mb={16} justify="center">
 							<NextLink href={LINKEDIN_LINK} passHref>
 								<Link
 									onClick={onClose}
 									title="LinkedIn"
 									isExternal
 									transition={createTransition("transform")}
-									p={4}
-									_hover={{ transform: "scale(1.05)" }}
-									_focus={{ transform: "scale(1.05)", outline: "none" }}
-									_active={{ transform: "scale(0.95)" }}
+									_hover={{ transform: "scale(1.1)" }}
+									_focus={{ transform: "scale(1.1)", outline: "none" }}
+									_active={{ transform: "scale(0.9)" }}
 								>
 									<FaLinkedinIn fontSize="1.75rem" />
 								</Link>
 							</NextLink>
-						</Box>
+						</Flex>
 					</DrawerBody>
 				</DrawerContent>
 			</Drawer>
