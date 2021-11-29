@@ -15,6 +15,13 @@ const theme = extendTheme({
 			"900": "#4e0000",
 		},
 	},
+	fonts: {
+		heading:
+			"Aktiv Grotesk Corp,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
+		body: "Aktiv Grotesk Corp,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
+	},
 })
 
 export default theme
+
+export { default as Fonts } from "./fonts"

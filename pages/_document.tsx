@@ -6,6 +6,66 @@ class MyDocument extends Document {
 		return (
 			<Html lang="en">
 				<Head>
+					{/* Fonts */}
+					<link
+						rel="preload"
+						href="/fonts/AktivGroteskCorp-Bold.woff2"
+						as="font"
+						type="font/woff2"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/fonts/AktivGroteskCorp-BoldItalic.woff2"
+						as="font"
+						type="font/woff2"
+						crossOrigin="anonymous"
+					/>
+
+					<link
+						rel="preload"
+						href="/fonts/AktivGroteskCorp-Light.woff2"
+						as="font"
+						type="font/woff2"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/fonts/AktivGroteskCorp-LightItalic.woff2"
+						as="font"
+						type="font/woff2"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/fonts/AktivGroteskCorp-Medium.woff2"
+						as="font"
+						type="font/woff2"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/fonts/AktivGroteskCorp-MediumItalic.woff2"
+						as="font"
+						type="font/woff2"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/fonts/AktivGroteskCorp-Regular.woff2"
+						as="font"
+						type="font/woff2"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/fonts/AktivGroteskCorp-Italic.woff2"
+						as="font"
+						type="font/woff2"
+						crossOrigin="anonymous"
+					/>
+
+					{/* Favicons */}
 					<link
 						rel="apple-touch-icon"
 						sizes="180x180"
