@@ -1,4 +1,5 @@
 import { extendTheme } from "@chakra-ui/react"
+import { components } from "./components"
 
 const theme = extendTheme({
 	colors: {
@@ -13,6 +14,12 @@ const theme = extendTheme({
 			"700": "#5a0000",
 			"800": "#540000",
 			"900": "#4e0000",
+		},
+	},
+	components,
+	textStyles: {
+		paragraph: {
+			lineHeight: 1.8,
 		},
 	},
 	fonts: {
