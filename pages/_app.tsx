@@ -1,4 +1,5 @@
 import { Chakra } from "@components/Chakra"
+import { Footer } from "@components/Footer"
 import { Navbar } from "@components/Navbar"
 import theme, { Fonts } from "@theme"
 import { DefaultSeo } from "next-seo"
@@ -13,6 +14,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<Fonts />
 				<Navbar />
 				<Component {...pageProps} />
+				<Footer />
 			</Chakra>
 		</>
 	)
