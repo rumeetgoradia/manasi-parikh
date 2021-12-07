@@ -75,6 +75,9 @@ const HomePage: NextPage = () => {
 					autoPlay
 					loop
 					muted
+					controls={false}
+					pointerEvents="none"
+					userSelect="none"
 					w="full"
 					position="absolute"
 					zIndex={100}

@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
 							title="LinkedIn"
 							isExternal
 							transition={createTransition("transform")}
-							mr={{ base: 8, sm: 0 }}
+							mr={{ base: 5, sm: 0 }}
 							_hover={{ transform: "scale(1.1)" }}
 							_focus={{ transform: "scale(1.1)", outline: "none" }}
 							_active={{ transform: "scale(0.95)" }}
@@ -27,39 +27,41 @@ const Footer: React.FC = () => {
 							<FaLinkedinIn fontSize="1.25rem" />
 						</Link>
 					</NextLink>
-					<HStack spacing={8}>
-						{NAV_ITEMS.map(({ path, title, isExternal }) =>
-							!isExternal ? (
-								<NextLink href={path} passHref key={`${title}-footer-link`}>
-									<Link
-										title={title}
-										position="relative"
-										_after={{
-											content: '""',
-											position: "absolute",
-											left: "50%",
-											bottom: "0px",
-											width: "95%",
-											height: "1px",
-											bg: "black",
-											transform: "translateX(-50%)",
-											transition: createTransition("width"),
-										}}
-										_hover={{
-											_after: {
-												width: "110%",
-											},
-										}}
-										_focus={{
-											_after: {
-												width: "110%",
-											},
-										}}
-									>
-										{title}
-									</Link>
-								</NextLink>
-							) : null
+					<HStack spacing={{ base: 5, sm: 8 }}>
+						{NAV_ITEMS.concat({ title: "Home", path: "/" }).map(
+							({ path, title, isExternal }) =>
+								!isExternal ? (
+									<NextLink href={path} passHref key={`${title}-footer-link`}>
+										<Link
+											title={title}
+											fontSize={{ base: "sm", sm: "md" }}
+											position="relative"
+											_after={{
+												content: '""',
+												position: "absolute",
+												left: "50%",
+												bottom: "0px",
+												width: "95%",
+												height: "1px",
+												bg: "black",
+												transform: "translateX(-50%)",
+												transition: createTransition("width"),
+											}}
+											_hover={{
+												_after: {
+													width: "110%",
+												},
+											}}
+											_focus={{
+												_after: {
+													width: "110%",
+												},
+											}}
+										>
+											{title}
+										</Link>
+									</NextLink>
+								) : null
 						)}
 					</HStack>
 				</Flex>
