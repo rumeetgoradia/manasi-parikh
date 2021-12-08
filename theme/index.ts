@@ -21,6 +21,11 @@ const theme = extendTheme({
 		paragraph: {
 			lineHeight: 1.8,
 		},
+		h2: {
+			fontWeight: "700",
+			fontSize: "2xl",
+			mb: 3,
+		},
 	},
 	fonts: {
 		heading:
