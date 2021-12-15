@@ -12,15 +12,15 @@ const WorkPage: NextPage = () => {
 				sx={{
 					".work-post-grid": {
 						display: "flex",
-						ml: -5,
-						mb: -5,
+						ml: -6,
+						mb: -6,
 						w: "auto",
 					},
 					".work-post-grid-col": {
-						pl: 5,
+						pl: 6,
 						bgClip: "padding-box",
 						"& .work-post-preview": {
-							mb: 5,
+							mb: 6,
 						},
 					},
 				}}
