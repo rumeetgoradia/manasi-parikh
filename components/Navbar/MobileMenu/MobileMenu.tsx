@@ -12,7 +12,7 @@ import {
 import { LINKEDIN_LINK, NAV_ITEMS } from "@constants"
 import { createTransition } from "@utils"
 import NextLink from "next/link"
-import React from "react"
+import React, { useRef } from "react"
 import { FaLinkedinIn } from "react-icons/fa"
 
 type MobileMenuProps = {
@@ -28,10 +28,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 	activePath,
 	disclosure: { onToggle, isOpen, onClose },
 }) => {
+	const btnRef = useRef<HTMLButtonElement>(null)
+
 	return (
 		<>
 			<Button
-				onClick={onToggle}
+				onClick={() => {
+					window.scrollTo(0, 0)
+					onToggle()
+				}}
 				aria-label={`${isOpen ? "Close" : "Open"} menu`}
 				variant="unstyled"
 				w="35px"
@@ -63,7 +68,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 				))}
 			</Button>
 
-			<Drawer isOpen={isOpen} onClose={onClose} placement="bottom" size="full">
+			<Drawer
+				isOpen={isOpen}
+				onClose={onClose}
+				initialFocusRef={btnRef}
+				placement="bottom"
+				size="full"
+			>
 				<DrawerOverlay display={{ sm: "none" }} bg="white" />
 				<DrawerContent display={{ sm: "none" }} bg="white">
 					<DrawerBody
@@ -81,6 +92,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 							align="center"
 							flexDirection="column"
 						>
+							<Button
+								w={0}
+								h={0}
+								p={0}
+								pointerEvents="none"
+								variant="unstyled"
+								_focus={{
+									outline: "none",
+									boxShadow: "none",
+								}}
+								ref={btnRef}
+							/>
 							<VStack w="full" spacing={4}>
 								{NAV_ITEMS.map((navItem) => (
 									<NextLink
