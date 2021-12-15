@@ -79,6 +79,7 @@ const AboutPage: NextPage<AboutPageProps> = ({ carouselImages }) => {
 							layout="fill"
 							objectFit="cover"
 							objectPosition="center center"
+							placeholder="blur"
 							alt="Career"
 						/>
 					</Box>
@@ -163,6 +164,7 @@ const AboutPage: NextPage<AboutPageProps> = ({ carouselImages }) => {
 							layout="fill"
 							objectFit="cover"
 							objectPosition="center 40%"
+							placeholder="blur"
 							alt="Personal"
 						/>
 					</Box>
