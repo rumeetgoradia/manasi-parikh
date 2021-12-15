@@ -78,6 +78,7 @@ const HomePage: NextPage = () => {
 					loop
 					muted
 					controls={false}
+					playsInline
 					pointerEvents="none"
 					userSelect="none"
 					w="full"
