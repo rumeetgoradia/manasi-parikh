@@ -7,17 +7,15 @@ import NextLink from "next/link"
 type WorkPostPreviewProps = {
 	title: string
 	description: string
+	thumbnail: StaticImageData
 	slug: string
-	thumbnailUrl: string
-	thumbnailBlur: string
 }
 
 const WorkPostPreview: React.FC<WorkPostPreviewProps> = ({
 	title,
 	description,
 	slug,
-	thumbnailBlur,
-	thumbnailUrl,
+	thumbnail,
 }) => {
 	return (
 		<Box
@@ -30,13 +28,12 @@ const WorkPostPreview: React.FC<WorkPostPreviewProps> = ({
 		>
 			<Box w="full" h="30vh" position="relative" overflow="hidden">
 				<NextImage
-					src={thumbnailUrl}
+					src={thumbnail}
 					alt={title}
 					layout="fill"
 					objectFit="cover"
 					objectPosition="center center"
 					placeholder="blur"
-					blurDataURL={thumbnailBlur}
 				/>
 			</Box>
 			<VStack pt={6} spacing={5} justify="flex-start" align="flex-start">

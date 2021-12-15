@@ -58,7 +58,9 @@ const HomePage: NextPage = () => {
 								to explore at your own pace.
 							</Text>
 							<NextLink href="/about" passHref>
-								<Button variant="filled">About Me.</Button>
+								<Button as="a" variant="filled">
+									About Me.
+								</Button>
 							</NextLink>
 						</Box>
 					</Flex>

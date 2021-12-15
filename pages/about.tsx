@@ -1,7 +1,7 @@
 import { Box, Flex, Text, VStack } from "@chakra-ui/layout"
 import { Carousel, CarouselImage } from "@components/About"
 import { PageLayout } from "@components/PageLayout"
-import WorkImage from "@images/about/career.jpeg"
+import CareerImage from "@images/about/career.jpeg"
 import PersonalImage from "@images/about/personal.jpeg"
 import { promises as fs } from "fs"
 import sizeof from "image-size"
@@ -9,6 +9,61 @@ import type { GetStaticProps, NextPage } from "next"
 import NextImage from "next/image"
 import path from "path"
 import { getPlaiceholder } from "plaiceholder"
+
+type Content = {
+	title: string
+	image: StaticImageData
+	content: JSX.Element
+}
+
+const CONTENT: Content[] = [
+	{
+		title: "Career",
+		image: CareerImage,
+		content: (
+			<Text textStyle="paragraph">
+				Currently, I am part of Acceleration into a Financial Professional at
+				Vanguard &ndash; a 2 year Finance rotational program meant to expedite
+				Finance acumen and experience. So far I have rotated through Finance
+				Technology, Financial Planning & Analysis (FP&A) for our Marketing
+				divisions and currently working in Retail Internal Audit (RIG). Each
+				experience has been very unique, teaching me to be adaptable and how to
+				quickly get up to speed. Here are some of my highlights: In FinTech, I
+				worked with developers to build a financial database in AWS; in FP&A, I
+				created a headcount allocation model for our clients to see how their
+				costs tie to the value generated; in RIG, I am supporting the Data
+				Strategy team to implement a plan to integrate data analytics into
+				audits.{" "}
+				<strong>
+					The common themes between all these projects is 1&#41; Data and 2&#41;
+					Creating a value-add end product and that&apos;s what I enjoy.
+				</strong>
+			</Text>
+		),
+	},
+	{
+		title: "Personal",
+		image: PersonalImage,
+		content: (
+			<Text textStyle="paragraph">
+				I have always had a passion for creativity and using it as an outlet to
+				voice my thoughts and feelings and also for fun! From writing to video
+				editing, having an end product in mind and letting my creative side do
+				the rest is a rush that can have me sitting at my computer for hours. To
+				me writing lets me be candid and articulate the jumbled emotions that
+				are bouncing around in my head. Video editing fulfills a similar
+				concept, but visually. Crafting together a video that summarizes a trip
+				or to convey a message has the ultimate satisfaction. In college, I
+				coordinated 20 senior graduation videos for my fraternity &ndash; Alpha
+				Kappa Psi &ndash; and the emotions and reactions that they delivered is
+				what videos are all about. A few other activities I enjoy doing in my
+				free time are: driving aimlessly, painting with my dad, and singing.
+				Everything I listed here is a way for me to create and act without
+				boundaries and that&apos;s the best part!
+			</Text>
+		),
+	},
+]
 
 export const getStaticProps: GetStaticProps = async () => {
 	const carouselImagesDirectory = path.resolve(
@@ -64,128 +119,58 @@ const AboutPage: NextPage<AboutPageProps> = ({ carouselImages }) => {
 			<Box mt={8}>
 				<Carousel images={carouselImages} />
 			</Box>
-			<VStack spacing={{ base: 8, md: 12 }} mt={12}>
-				<Flex flexDirection={{ base: "column", md: "row" }}>
-					<Text textStyle="h2" as="h2" display={{ md: "none" }}>
-						Career.
-					</Text>
-					<Box
-						flex={{ base: "1 1 auto", md: "1 1 50%" }}
-						h={{ base: "30vh", md: "auto" }}
-						position="relative"
+			<VStack spacing={{ base: 8, md: 12 }} mt={{ base: 8, md: 12 }}>
+				{CONTENT.map(({ title, image, content }, index) => (
+					<Flex
+						flexDirection={{ base: "column", md: "row" }}
+						key={`${title}-blurb`}
 					>
-						<NextImage
-							src={WorkImage}
-							layout="fill"
-							objectFit="cover"
-							objectPosition="center center"
-							placeholder="blur"
-							alt="Career"
-						/>
-					</Box>
-					<Text textStyle="paragraph" mt={3} display={{ md: "none" }}>
-						Currently, I am part of Acceleration into a Financial Professional
-						at Vanguard &ndash; a 2 year Finance rotational program meant to
-						expedite Finance acumen and experience. So far I have rotated
-						through Finance Technology, Financial Planning & Analysis (FP&A) for
-						our Marketing divisions and currently working in Retail Internal
-						Audit (RIG). Each experience has been very unique, teaching me to be
-						adaptable and how to quickly get up to speed. Here are some of my
-						highlights: In FinTech, I worked with developers to build a
-						financial database in AWS; in FP&A, I created a headcount allocation
-						model for our clients to see how their costs tie to the value
-						generated; in RIG, I am supporting the Data Strategy team to
-						implement a plan to integrate data analytics into audits.{" "}
-						<strong>
-							The common themes between all these projects is 1&#41; Data and
-							2&#41; Creating a value-add end product and that&apos;s what I
-							enjoy.
-						</strong>
-					</Text>
-					<Box flex="1 1 50%" ml={12} display={{ base: "none", md: "block" }}>
-						<Text textStyle="h2" as="h2">
-							Career.
+						{index % 2 === 1 && (
+							<Box
+								flex="1 1 50%"
+								mr={12}
+								display={{ base: "none", md: "block" }}
+							>
+								<Text textStyle="h2" as="h2">
+									{title}
+								</Text>
+								{content}
+							</Box>
+						)}
+						<Text textStyle="h2" as="h2" display={{ md: "none" }}>
+							{title}
 						</Text>
-						<Text textStyle="paragraph">
-							Currently, I am part of Acceleration into a Financial Professional
-							at Vanguard &ndash; a 2 year Finance rotational program meant to
-							expedite Finance acumen and experience. So far I have rotated
-							through Finance Technology, Financial Planning & Analysis (FP&A)
-							for our Marketing divisions and currently working in Retail
-							Internal Audit (RIG). Each experience has been very unique,
-							teaching me to be adaptable and how to quickly get up to speed.
-							Here are some of my highlights: In FinTech, I worked with
-							developers to build a financial database in AWS; in FP&A, I
-							created a headcount allocation model for our clients to see how
-							their costs tie to the value generated; in RIG, I am supporting
-							the Data Strategy team to implement a plan to integrate data
-							analytics into audits.{" "}
-							<strong>
-								The common themes between all these projects are 1&#41; Data and
-								2&#41; Creating a value-add end product and that&apos;s what I
-								enjoy.
-							</strong>
-						</Text>
-					</Box>
-				</Flex>
-				<Flex flexDirection={{ base: "column", md: "row" }}>
-					<Box flex="1 1 50%" mr={12} display={{ base: "none", md: "block" }}>
-						<Text textStyle="h2" as="h2">
-							Personal.
-						</Text>
-						<Text textStyle="paragraph">
-							I have always had a passion for creativity and using it as an
-							outlet to voice my thoughts and feelings and also for fun! From
-							writing to video editing, having an end product in mind and
-							letting my creative side do the rest is a rush that can have me
-							sitting at my computer for hours. To me writing lets me be candid
-							and articulate the jumbled emotions that are bouncing around in my
-							head. Video editing fulfills a similar concept, but visually.
-							Crafting together a video that summarizes a trip or to convey a
-							message has the ultimate satisfaction. In college, I coordinated
-							20 senior graduation videos for my fraternity &ndash; Alpha Kappa
-							Psi &ndash; and the emotions/reactions that they delivered is what
-							videos are all about. A few other activities I enjoy doing in my
-							free time are: driving aimlessly, painting with my dad, and
-							singing. Everything I listed here is a way for me to create and
-							act without boundaries and that&apos;s the best part!
-						</Text>
-					</Box>
-					<Text textStyle="h2" as="h2" display={{ md: "none" }}>
-						Personal.
-					</Text>
-					<Box
-						flex={{ base: "1 1 auto", md: "1 1 50%" }}
-						h={{ base: "30vh", md: "auto" }}
-						position="relative"
-					>
-						<NextImage
-							src={PersonalImage}
-							layout="fill"
-							objectFit="cover"
-							objectPosition="center 40%"
-							placeholder="blur"
-							alt="Personal"
-						/>
-					</Box>
-					<Text textStyle="paragraph" mt={3} display={{ md: "none" }}>
-						I have always had a passion for creativity, not just as an outlet to
-						voice my thoughts and feelings, but also for fun! From writing to
-						video editing, having an end product in mind and letting my creative
-						side do the rest is a rush that can have me sitting at my computer
-						for hours. Writing lets me be candid and articulate the jumbled
-						emotions that are bouncing around in my head. Video editing fulfills
-						a similar concept, but visually. Crafting together a video that
-						summarizes a trip or to convey a message has the ultimate
-						satisfaction. In college, I coordinated 20 senior graduation videos
-						for my fraternity &ndash; Alpha Kappa Psi &ndash; and the
-						emotions/reactions that they delivered is what videos are all about.
-						A few other activities I enjoy doing in my free time are: driving
-						aimlessly, painting with my dad, and singing. Everything I listed
-						here is a way for me to create and act without boundaries and
-						that&apos;s the best part!
-					</Text>
-				</Flex>
+						<Box
+							flex={{ base: "1 1 auto", md: "1 1 50%" }}
+							h={{ base: "30vh", md: "auto" }}
+							position="relative"
+						>
+							<NextImage
+								src={image}
+								layout="fill"
+								objectFit="cover"
+								objectPosition="center center"
+								placeholder="blur"
+								alt={title}
+							/>
+						</Box>
+						<Box mt={3} display={{ md: "none" }}>
+							{content}
+						</Box>
+						{index % 2 === 0 && (
+							<Box
+								flex="1 1 50%"
+								ml={12}
+								display={{ base: "none", md: "block" }}
+							>
+								<Text textStyle="h2" as="h2">
+									{title}
+								</Text>
+								{content}
+							</Box>
+						)}
+					</Flex>
+				))}
 			</VStack>
 		</PageLayout>
 	)

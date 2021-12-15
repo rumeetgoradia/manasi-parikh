@@ -1,51 +1,11 @@
 import { Box } from "@chakra-ui/layout"
 import { PageLayout } from "@components/PageLayout"
 import { WorkPostPreview } from "@components/Work"
-import fs from "fs"
-import matter from "gray-matter"
-import type { GetStaticProps, NextPage } from "next"
-import path from "path"
-import { getPlaiceholder } from "plaiceholder"
+import type { NextPage } from "next"
 import Masonry from "react-masonry-css"
+import { WORK_POSTS } from "work"
 
-export const getStaticProps: GetStaticProps = async () => {
-	const files = fs.readdirSync(path.join("work"))
-
-	const workPosts = []
-	for (const filename of files) {
-		const markdownWithMeta = fs.readFileSync(path.join("work", filename))
-		const { data: frontMatter } = matter(markdownWithMeta)
-
-		const placeholder = await getPlaiceholder(frontMatter.thumbnailUrl)
-		frontMatter.thumbnailBlur = placeholder.base64
-
-		workPosts.push({
-			frontMatter,
-			slug: filename.split(".")[0],
-		})
-	}
-
-	return {
-		props: {
-			workPosts,
-		},
-	}
-}
-
-type WorkPageProps = {
-	workPosts: {
-		frontMatter: {
-			title: string
-			description: string
-			thumbnailUrl: string
-			thumbnailBlur: string
-			[key: string]: any
-		}
-		slug: string
-	}[]
-}
-
-const WorkPage: NextPage<WorkPageProps> = ({ workPosts }) => {
+const WorkPage: NextPage = () => {
 	return (
 		<PageLayout seoTitle="Work" pageTitle="My Experience">
 			<Box
@@ -70,11 +30,13 @@ const WorkPage: NextPage<WorkPageProps> = ({ workPosts }) => {
 					columnClassName="work-post-grid-col"
 					breakpointCols={{ default: 2, 640: 1 }}
 				>
-					{workPosts.map((post) => (
+					{WORK_POSTS.map(({ title, description, thumbnail }) => (
 						<WorkPostPreview
-							{...post.frontMatter}
-							slug={post.slug}
-							key={`${post.frontMatter.title}-post-preview`}
+							title={title}
+							description={description}
+							thumbnail={thumbnail}
+							slug={title.replace(/\s/g, "-").toLowerCase()}
+							key={`${title}-post-preview`}
 						/>
 					))}
 				</Masonry>
