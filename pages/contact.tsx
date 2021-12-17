@@ -13,7 +13,7 @@ import {
 import { PageLayout } from "@components/PageLayout"
 import type { NextPage } from "next"
 import { useForm } from "react-hook-form"
-import redaxios, { Response } from "redaxios"
+import redaxios from "redaxios"
 
 type ContactData = {
 	name: string
@@ -29,7 +29,7 @@ const ContactPage: NextPage = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isSubmitting, isValidating },
+		formState: { errors, isSubmitting },
 		reset,
 	} = useForm<ContactData>()
 
@@ -40,27 +40,27 @@ const ContactPage: NextPage = () => {
 		position: "top-right",
 	}
 
-	const onSubmit = (values: ContactData) => {
+	const onSubmit = async (values: ContactData) => {
 		// console.log(values)
-		redaxios.post("/api/contact", values).then((res: Response<any>) => {
-			if (res.status === 200) {
-				toast({
-					title: "Message sent successfully " + String.fromCodePoint(0x1f601),
-					description: "Thanks for your message! I'll get back to you shortly.",
-					status: "success",
-					onCloseComplete: reset,
-					...toastOptions,
-				})
-			} else {
-				toast({
-					title: "Something went wrong " + String.fromCodePoint(0x1f615),
-					description:
-						"There was an issue processing your message. Please try again later!",
-					status: "error",
-					...toastOptions,
-				})
-			}
-		})
+		const res = await redaxios.post("/api/contact", values)
+
+		if (res.status === 200) {
+			toast({
+				title: "Message sent successfully " + String.fromCodePoint(0x1f601),
+				description: "Thanks for your message! I'll get back to you shortly.",
+				status: "success",
+				onCloseComplete: reset,
+				...toastOptions,
+			})
+		} else {
+			toast({
+				title: "Something went wrong " + String.fromCodePoint(0x1f615),
+				description:
+					"There was an issue processing your message. Please try again later!",
+				status: "error",
+				...toastOptions,
+			})
+		}
 	}
 
 	return (
@@ -138,8 +138,8 @@ const ContactPage: NextPage = () => {
 						type="submit"
 						variant="filled"
 						w="full"
-						disabled={isSubmitting || isValidating}
-						isLoading={isSubmitting || isValidating}
+						disabled={isSubmitting}
+						isLoading={isSubmitting}
 						loadingText="Sending..."
 					>
 						Send Message
