@@ -25,7 +25,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 						fontSize="5xl"
 						fontWeight="bold"
 						mb={6}
-						lineHeight={1.25}
+						lineHeight={1}
+						letterSpacing={-2}
 					>
 						{pageTitle || title}.
 					</Text>
