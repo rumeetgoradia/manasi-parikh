@@ -8,7 +8,7 @@ import { FaLinkedinIn } from "react-icons/fa"
 const Footer: React.FC = () => {
 	return (
 		<Box as="footer" w="full" bg="white" px={8} pt={4} pb={12}>
-			<Container maxW="container.lg" p={0}>
+			<Container maxW="container.xl" p={0}>
 				<Flex
 					justify={{ base: "center", sm: "space-between" }}
 					align="center"

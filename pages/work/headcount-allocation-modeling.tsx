@@ -5,7 +5,7 @@ import Step2Image from "@images/work/headcount-allocation-modeling/step2.png"
 import Step3Image from "@images/work/headcount-allocation-modeling/step3.png"
 import Step4Image from "@images/work/headcount-allocation-modeling/step4.jpeg"
 import { NextPage } from "next"
-import NextImage from "next/image"
+import NextImage, { StaticImageData } from "next/image"
 
 type Content = {
 	title: string

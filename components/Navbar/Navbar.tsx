@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
 			py={8}
 			bg="brand.50"
 		>
-			<Container maxW="container.lg" p={0}>
+			<Container maxW="container.xl" p={0}>
 				<Flex justify="space-between" align="center">
 					<NextLink href="/" passHref>
 						<Logo

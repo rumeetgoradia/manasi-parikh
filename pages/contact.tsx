@@ -123,7 +123,6 @@ const ContactPage: NextPage = () => {
 					<FormControl id="message" isRequired isInvalid={!!errors.message}>
 						<FormLabel>Message</FormLabel>
 						<Textarea
-							type="subject"
 							variant="outline"
 							rows={10}
 							{...register("message", {

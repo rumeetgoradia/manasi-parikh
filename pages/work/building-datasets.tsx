@@ -117,7 +117,7 @@ const BuildingDatasetsPost: NextPage = () => {
 					to be joined together to create 6 large datasets that financial
 					analysts could access for daily use.
 				</Text>
-				<Accordion defaultIndex={[0]} allowMultiple w="full">
+				<Accordion allowMultiple w="full">
 					{CONTENT.map(({ title, content }, index) => (
 						<AccordionItem key={`${title}-step`}>
 							<AccordionButton

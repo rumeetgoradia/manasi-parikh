@@ -14,7 +14,7 @@ const HomePage: NextPage = () => {
 		<>
 			<NextSeo titleTemplate="%s" />
 			<Box w="full" px={8} py={12}>
-				<Container maxW="container.lg" p={0}>
+				<Container maxW="container.xl" p={0}>
 					<Flex
 						w="full"
 						align="center"
@@ -34,14 +34,6 @@ const HomePage: NextPage = () => {
 								height={1832}
 								placeholder="blur"
 								alt={SITE_NAME}
-							/>
-							<Box
-								position="absolute"
-								w="full"
-								h="full"
-								bg="black"
-								opacity={0.2}
-								zIndex={100}
 							/>
 						</Flex>
 						<Box as="main" w="full">
@@ -67,7 +59,7 @@ const HomePage: NextPage = () => {
 				</Container>
 			</Box>
 			<Box
-				minH={{ base: "200px", md: "250px" }}
+				minH={{ base: "180px", md: "200px" }}
 				w="full"
 				position="relative"
 				overflow="hidden"
@@ -118,7 +110,7 @@ const HomePage: NextPage = () => {
 			</Box>
 			<Box w="full" px={8} py={12}>
 				<Container
-					maxW="container.lg"
+					maxW="container.xl"
 					position="relative"
 					zIndex={199}
 					p={0}

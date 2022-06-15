@@ -1,13 +1,14 @@
 import { Box, Container, Text } from "@chakra-ui/layout"
 import { NextSeo } from "next-seo"
 
-type PageLayoutProps =
+type PageLayoutProps = (
 	| {
 			title: string
 			pageTitle?: never
 			seoTitle?: never
 	  }
 	| { title?: never; pageTitle: string; seoTitle: string }
+) & { children: React.ReactNode }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
 	title,
@@ -19,7 +20,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 		<>
 			<NextSeo title={seoTitle || title} />
 			<Box w="full" px={8} py={12} minH="calc(100vh - 109px - 88px)">
-				<Container maxW="container.lg" p={0} as="main">
+				<Container maxW="container.xl" p={0} as="main">
 					<Text
 						as="h1"
 						fontSize="5xl"

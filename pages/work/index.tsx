@@ -28,7 +28,7 @@ const WorkPage: NextPage = () => {
 				<Masonry
 					className="work-post-grid"
 					columnClassName="work-post-grid-col"
-					breakpointCols={{ default: 2, 640: 1 }}
+					breakpointCols={{ default: 3, 768: 2, 640: 1 }}
 				>
 					{WORK_POSTS.map(({ title, description, thumbnail }) => (
 						<WorkPostPreview
