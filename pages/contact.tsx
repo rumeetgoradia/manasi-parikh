@@ -43,6 +43,7 @@ const ContactPage: NextPage = () => {
 	const onSubmit = async (values: ContactData) => {
 		// console.log(values)
 		const res = await redaxios.post("/api/contact", values)
+		console.log(res)
 
 		if (res.status === 200) {
 			toast({
