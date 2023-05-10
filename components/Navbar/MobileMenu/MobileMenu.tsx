@@ -8,34 +8,34 @@ import {
 	Flex,
 	Link,
 	VStack,
-} from "@chakra-ui/react"
-import { LINKEDIN_LINK, NAV_ITEMS } from "@constants"
-import { createTransition } from "@utils"
-import NextLink from "next/link"
-import React, { useRef } from "react"
-import { FaLinkedinIn } from "react-icons/fa"
+} from "@chakra-ui/react";
+import { LINKEDIN_LINK, NAV_ITEMS } from "@constants";
+import { createTransition } from "@utils";
+import NextLink from "next/link";
+import React, { useRef } from "react";
+import { FaLinkedinIn } from "react-icons/fa";
 
 type MobileMenuProps = {
-	activePath: string
+	activePath: string;
 	disclosure: {
-		isOpen: boolean
-		onClose: () => void
-		onToggle: () => void
-	}
-}
+		isOpen: boolean;
+		onClose: () => void;
+		onToggle: () => void;
+	};
+};
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
 	activePath,
 	disclosure: { onToggle, isOpen, onClose },
 }) => {
-	const btnRef = useRef<HTMLButtonElement>(null)
+	const btnRef = useRef<HTMLButtonElement>(null);
 
 	return (
 		<>
 			<Button
 				onClick={() => {
-					window.scrollTo(0, 0)
-					onToggle()
+					window.scrollTo(0, 0);
+					onToggle();
 				}}
 				aria-label={`${isOpen ? "Close" : "Open"} menu`}
 				variant="unstyled"
@@ -82,8 +82,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 						h="full"
 						display="flex"
 						flexDirection="column"
-						justify="center"
-						align="center"
+						justifyContent="center"
+						alignItems="center"
 					>
 						<Flex
 							// h="full"
@@ -169,7 +169,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 				</DrawerContent>
 			</Drawer>
 		</>
-	)
-}
+	);
+};
 
-export default MobileMenu
+export default MobileMenu;

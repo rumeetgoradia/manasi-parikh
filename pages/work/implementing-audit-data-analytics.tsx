@@ -1,19 +1,19 @@
-import { Box, Flex, Text, VStack } from "@chakra-ui/react"
-import { PageLayout } from "@components/PageLayout"
-import Step1Image from "@images/work/implementing-audit-data-analytics/step1.jpeg"
-import Step2Image from "@images/work/implementing-audit-data-analytics/step2.jpeg"
-import Step3Image from "@images/work/implementing-audit-data-analytics/step3.jpeg"
-import Step4Image from "@images/work/implementing-audit-data-analytics/step4.jpeg"
-import { createTransition } from "@utils"
-import { NextPage } from "next"
-import NextImage from "next/image"
-import Masonry from "react-masonry-css"
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
+import { PageLayout } from "@components/PageLayout";
+import Step1Image from "@images/work/implementing-audit-data-analytics/step1.jpeg";
+import Step2Image from "@images/work/implementing-audit-data-analytics/step2.jpeg";
+import Step3Image from "@images/work/implementing-audit-data-analytics/step3.jpeg";
+import Step4Image from "@images/work/implementing-audit-data-analytics/step4.jpeg";
+import { createTransition } from "@utils";
+import { NextPage } from "next";
+import NextImage, { StaticImageData } from "next/image";
+import Masonry from "react-masonry-css";
 
 type Content = {
-	title: string
-	image: StaticImageData
-	content: string
-}
+	title: string;
+	image: StaticImageData;
+	content: string;
+};
 
 const CONTENT: Content[] = [
 	{
@@ -40,7 +40,7 @@ const CONTENT: Content[] = [
 		content:
 			"We are still working on launching this initiative and are excited for the results!",
 	},
-]
+];
 
 const ImplementingAuditDataAnalyticsPost: NextPage = () => {
 	return (
@@ -134,7 +134,7 @@ const ImplementingAuditDataAnalyticsPost: NextPage = () => {
 				</Box>
 			</VStack>
 		</PageLayout>
-	)
-}
+	);
+};
 
-export default ImplementingAuditDataAnalyticsPost
+export default ImplementingAuditDataAnalyticsPost;

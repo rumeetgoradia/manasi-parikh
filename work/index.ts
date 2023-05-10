@@ -1,12 +1,13 @@
-import BuildingDatasetsThumbnail from "@images/work/building-datasets/thumbnail.jpeg"
-import HeadcountAllocationModelingThumbnail from "@images/work/headcount-allocation-modeling/thumbnail.jpeg"
-import ImplementingAuditDataAnalyticsThumbnail from "@images/work/implementing-audit-data-analytics/thumbnail.jpeg"
+import BuildingDatasetsThumbnail from "@images/work/building-datasets/thumbnail.jpeg";
+import HeadcountAllocationModelingThumbnail from "@images/work/headcount-allocation-modeling/thumbnail.jpeg";
+import ImplementingAuditDataAnalyticsThumbnail from "@images/work/implementing-audit-data-analytics/thumbnail.jpeg";
+import { StaticImageData } from "next/image";
 
 export type WorkPost = {
-	title: string
-	description: string
-	thumbnail: StaticImageData
-}
+	title: string;
+	description: string;
+	thumbnail: StaticImageData;
+};
 
 export const WORK_POSTS: WorkPost[] = [
 	{
@@ -27,4 +28,4 @@ export const WORK_POSTS: WorkPost[] = [
 			"Sometimes the way finance sees costs does not line up with the way clients sees costs. For this case, I designed a headcount allocation model to provide our internal business partners with visibility into their expenses.",
 		thumbnail: ImplementingAuditDataAnalyticsThumbnail,
 	},
-]
+];
