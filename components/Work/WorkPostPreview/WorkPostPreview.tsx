@@ -1,15 +1,15 @@
-import { Box, Text, VStack } from "@chakra-ui/layout"
-import { Button } from "@chakra-ui/react"
-import { createTransition } from "@utils"
-import NextImage from "next/image"
-import NextLink from "next/link"
+import { Box, Text, VStack } from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/react";
+import { createTransition } from "@utils";
+import NextImage, { StaticImageData } from "next/image";
+import NextLink from "next/link";
 
 type WorkPostPreviewProps = {
-	title: string
-	description: string
-	thumbnail: StaticImageData
-	slug: string
-}
+	title: string;
+	description: string;
+	thumbnail: StaticImageData;
+	slug: string;
+};
 
 const WorkPostPreview: React.FC<WorkPostPreviewProps> = ({
 	title,
@@ -50,7 +50,7 @@ const WorkPostPreview: React.FC<WorkPostPreviewProps> = ({
 				</NextLink>
 			</VStack>
 		</Box>
-	)
-}
+	);
+};
 
-export default WorkPostPreview
+export default WorkPostPreview;

@@ -1,20 +1,20 @@
-import { Box, Flex, Text, VStack } from "@chakra-ui/layout"
-import { Carousel, CarouselImage } from "@components/About"
-import { PageLayout } from "@components/PageLayout"
-import CareerImage from "@images/about/career.jpeg"
-import PersonalImage from "@images/about/personal.jpeg"
-import { promises as fs } from "fs"
-import sizeof from "image-size"
-import type { GetStaticProps, NextPage } from "next"
-import NextImage from "next/image"
-import path from "path"
-import { getPlaiceholder } from "plaiceholder"
+import { Box, Flex, Text, VStack } from "@chakra-ui/layout";
+import { Carousel, CarouselImage } from "@components/About";
+import { PageLayout } from "@components/PageLayout";
+import CareerImage from "@images/about/career.jpeg";
+import PersonalImage from "@images/about/personal.jpeg";
+import { promises as fs } from "fs";
+import sizeof from "image-size";
+import type { GetStaticProps, NextPage } from "next";
+import NextImage, { StaticImageData } from "next/image";
+import path from "path";
+import { getPlaiceholder } from "plaiceholder";
 
 type Content = {
-	title: string
-	image: StaticImageData
-	content: JSX.Element
-}
+	title: string;
+	image: StaticImageData;
+	content: JSX.Element;
+};
 
 const CONTENT: Content[] = [
 	{
@@ -63,7 +63,7 @@ const CONTENT: Content[] = [
 			</Text>
 		),
 	},
-]
+];
 
 export const getStaticProps: GetStaticProps = async () => {
 	const carouselImagesDirectory = path.resolve(
@@ -72,32 +72,32 @@ export const getStaticProps: GetStaticProps = async () => {
 		"images",
 		"about",
 		"carousel"
-	)
-	const filenames = await fs.readdir(carouselImagesDirectory)
+	);
+	const filenames = await fs.readdir(carouselImagesDirectory);
 	const carouselImages = filenames.map(async (filename) => {
 		const { width, height } = sizeof(
 			path.join(carouselImagesDirectory, filename)
-		)
-		const src = `/images/about/carousel/${filename}`
-		const { base64 } = await getPlaiceholder(src)
+		);
+		const src = `/images/about/carousel/${filename}`;
+		const { base64 } = await getPlaiceholder(src);
 		return {
 			src,
 			width,
 			height,
 			blurDataUrl: base64,
-		}
-	})
+		};
+	});
 
 	return {
 		props: {
 			carouselImages: await Promise.all(carouselImages),
 		},
-	}
-}
+	};
+};
 
 type AboutPageProps = {
-	carouselImages: CarouselImage[]
-}
+	carouselImages: CarouselImage[];
+};
 
 const AboutPage: NextPage<AboutPageProps> = ({ carouselImages }) => {
 	return (
@@ -173,7 +173,7 @@ const AboutPage: NextPage<AboutPageProps> = ({ carouselImages }) => {
 				))}
 			</VStack>
 		</PageLayout>
-	)
-}
+	);
+};
 
-export default AboutPage
+export default AboutPage;
