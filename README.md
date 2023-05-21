@@ -1,1 +1,0 @@
-# Manasi Parikh's Portfolio
