@@ -1,8 +1,7 @@
-import { Box, Text, VStack } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/react";
+import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import { createTransition } from "@utils";
-import NextImage, { StaticImageData } from "next/image";
-import NextLink from "next/link";
+import { default as NextImage, StaticImageData } from "next/image";
+import { default as NextLink } from "next/link";
 
 type WorkPostPreviewProps = {
 	title: string;

@@ -1,22 +1,22 @@
-import { IconButton } from "@chakra-ui/button"
-import { Box, Container } from "@chakra-ui/layout"
-import NextImage from "next/image"
-import { useMemo, useRef } from "react"
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs"
-import Slider, { Settings } from "react-slick"
-import "slick-carousel/slick/slick-theme.css"
-import "slick-carousel/slick/slick.css"
+import { Box, Container, IconButton } from "@chakra-ui/react";
+
+import { default as NextImage } from "next/image";
+import { useMemo, useRef } from "react";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import Slider, { Settings } from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 export type CarouselImage = {
-	src: string
-	width: number
-	height: number
-	blurDataUrl: string
-}
+	src: string;
+	width: number;
+	height: number;
+	blurDataUrl: string;
+};
 
 type CarouselProps = {
-	images: CarouselImage[]
-}
+	images: CarouselImage[];
+};
 
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
 	const carouselItems = useMemo(
@@ -40,9 +40,9 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 				</Box>
 			)),
 		[images]
-	)
+	);
 
-	const sliderRef = useRef<Slider | null>(null)
+	const sliderRef = useRef<Slider | null>(null);
 
 	const settings: Settings = {
 		infinite: true,
@@ -54,7 +54,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 		variableWidth: true,
 		arrows: false,
 		adaptiveHeight: true,
-	}
+	};
 
 	return (
 		<Container
@@ -108,7 +108,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 				size="sm"
 			/>
 		</Container>
-	)
-}
+	);
+};
 
-export default Carousel
+export default Carousel;
