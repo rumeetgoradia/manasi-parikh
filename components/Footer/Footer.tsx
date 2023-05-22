@@ -1,9 +1,8 @@
-import { Container, Flex, HStack, Link } from "@chakra-ui/layout"
-import { Box } from "@chakra-ui/react"
-import { LINKEDIN_LINK, NAV_ITEMS } from "@constants"
-import { createTransition } from "@utils"
-import NextLink from "next/link"
-import { FaLinkedinIn } from "react-icons/fa"
+import { Box, Container, Flex, HStack, Link } from "@chakra-ui/react";
+import { LINKEDIN_LINK, NAV_ITEMS } from "@constants";
+import { createTransition } from "@utils";
+import { default as NextLink } from "next/link";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const Footer: React.FC = () => {
 	return (
@@ -67,7 +66,7 @@ const Footer: React.FC = () => {
 				</Flex>
 			</Container>
 		</Box>
-	)
-}
+	);
+};
 
-export default Footer
+export default Footer;

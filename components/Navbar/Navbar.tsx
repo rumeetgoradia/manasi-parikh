@@ -1,15 +1,14 @@
-import { useDisclosure } from "@chakra-ui/hooks"
-import { Container, Flex } from "@chakra-ui/layout"
-import { Logo } from "@components/Logo"
-import { createTransition } from "@utils"
-import { useRouter } from "next/dist/client/router"
-import NextLink from "next/link"
-import { DesktopMenu } from "./DesktopMenu"
-import { MobileMenu } from "./MobileMenu"
+import { Container, Flex, useDisclosure } from "@chakra-ui/react";
+import { Logo } from "@components/Logo";
+import { createTransition } from "@utils";
+import { default as NextLink } from "next/link";
+import { useRouter } from "next/router";
+import { DesktopMenu } from "./DesktopMenu";
+import { MobileMenu } from "./MobileMenu";
 
 const Navbar: React.FC = () => {
-	const router = useRouter()
-	const disclosure = useDisclosure()
+	const router = useRouter();
+	const disclosure = useDisclosure();
 
 	return (
 		<Flex
@@ -42,7 +41,7 @@ const Navbar: React.FC = () => {
 				</Flex>
 			</Container>
 		</Flex>
-	)
-}
+	);
+};
 
-export default Navbar
+export default Navbar;

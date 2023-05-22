@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/layout"
-import { PageLayout } from "@components/PageLayout"
-import { WorkPostPreview } from "@components/Work"
-import type { NextPage } from "next"
-import Masonry from "react-masonry-css"
-import { WORK_POSTS } from "work"
+import { Box } from "@chakra-ui/react";
+import { PageLayout } from "@components/PageLayout";
+import { WorkPostPreview } from "@components/Work";
+import type { NextPage } from "next";
+import Masonry from "react-masonry-css";
+import { WORK_POSTS } from "work";
 
 const WorkPage: NextPage = () => {
 	return (
@@ -42,7 +42,7 @@ const WorkPage: NextPage = () => {
 				</Masonry>
 			</Box>
 		</PageLayout>
-	)
-}
+	);
+};
 
-export default WorkPage
+export default WorkPage;

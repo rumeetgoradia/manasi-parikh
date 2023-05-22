@@ -1,4 +1,4 @@
-import Icon, { IconProps } from "@chakra-ui/icon"
+import { Icon, IconProps } from "@chakra-ui/react";
 
 const Logo: React.FC<IconProps> = (props) => {
 	return (
@@ -17,7 +17,7 @@ const Logo: React.FC<IconProps> = (props) => {
 				fill="black"
 			/>
 		</Icon>
-	)
-}
+	);
+};
 
-export default Logo
+export default Logo;

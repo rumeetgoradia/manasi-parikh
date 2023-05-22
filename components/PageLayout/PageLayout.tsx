@@ -1,14 +1,14 @@
-import { Box, Container, Text } from "@chakra-ui/layout"
-import { NextSeo } from "next-seo"
+import { Box, Container, Text } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 
 type PageLayoutProps = (
 	| {
-			title: string
-			pageTitle?: never
-			seoTitle?: never
+			title: string;
+			pageTitle?: never;
+			seoTitle?: never;
 	  }
 	| { title?: never; pageTitle: string; seoTitle: string }
-) & { children: React.ReactNode }
+) & { children: React.ReactNode };
 
 const PageLayout: React.FC<PageLayoutProps> = ({
 	title,
@@ -35,7 +35,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 				</Container>
 			</Box>
 		</>
-	)
-}
+	);
+};
 
-export default PageLayout
+export default PageLayout;

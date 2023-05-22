@@ -1,11 +1,11 @@
-import { HStack, Link } from "@chakra-ui/layout"
-import { LINKEDIN_LINK, NAV_ITEMS } from "@constants"
-import { createTransition } from "@utils"
-import NextLink from "next/link"
-import { FaLinkedinIn } from "react-icons/fa"
+import { HStack, Link } from "@chakra-ui/react";
+import { LINKEDIN_LINK, NAV_ITEMS } from "@constants";
+import { createTransition } from "@utils";
+import { default as NextLink } from "next/link";
+import { FaLinkedinIn } from "react-icons/fa";
 type DesktopMenuProps = {
-	activePath: string
-}
+	activePath: string;
+};
 
 const DesktopMenu: React.FC<DesktopMenuProps> = ({ activePath }) => {
 	return (
@@ -62,7 +62,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ activePath }) => {
 				</Link>
 			</NextLink>
 		</HStack>
-	)
-}
+	);
+};
 
-export default DesktopMenu
+export default DesktopMenu;

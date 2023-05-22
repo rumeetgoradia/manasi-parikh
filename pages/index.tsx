@@ -1,13 +1,12 @@
-import { Button } from "@chakra-ui/button"
-import { Box, Container, Flex, Text } from "@chakra-ui/layout"
-import { SITE_NAME } from "@constants"
-import ArticleImage from "@images/home/article.jpg"
-import LandingImage from "@images/home/landing.jpg"
-import { fade } from "@utils"
-import type { NextPage } from "next"
-import { NextSeo } from "next-seo"
-import NextImage from "next/image"
-import NextLink from "next/link"
+import { Box, Button, Container, Flex, Text } from "@chakra-ui/react";
+import { SITE_NAME } from "@constants";
+import ArticleImage from "@images/home/article.jpg";
+import LandingImage from "@images/home/landing.jpg";
+import { fade } from "@utils";
+import type { NextPage } from "next";
+import { NextSeo } from "next-seo";
+import NextImage from "next/image";
+import { default as NextLink } from "next/link";
 
 const HomePage: NextPage = () => {
 	return (
@@ -164,7 +163,7 @@ const HomePage: NextPage = () => {
 				</Container>
 			</Box>
 		</>
-	)
-}
+	);
+};
 
-export default HomePage
+export default HomePage;

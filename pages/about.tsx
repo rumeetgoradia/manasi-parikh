@@ -1,4 +1,4 @@
-import { Box, Flex, Text, VStack } from "@chakra-ui/layout";
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { Carousel, CarouselImage } from "@components/About";
 import { PageLayout } from "@components/PageLayout";
 import CareerImage from "@images/about/career.jpeg";

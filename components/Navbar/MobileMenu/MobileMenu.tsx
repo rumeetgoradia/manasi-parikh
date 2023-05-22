@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { LINKEDIN_LINK, NAV_ITEMS } from "@constants";
 import { createTransition } from "@utils";
-import NextLink from "next/link";
+import { default as NextLink } from "next/link";
 import React, { useRef } from "react";
 import { FaLinkedinIn } from "react-icons/fa";
 
