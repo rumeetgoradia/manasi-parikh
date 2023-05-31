@@ -1,30 +1,33 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import { createTransport, SendMailOptions } from "nodemailer"
-import defaultHandler from "./_defaultHandler"
+import type { NextApiRequest, NextApiResponse } from "next";
+import { SendMailOptions, createTransport } from "nodemailer";
 
-const handler = defaultHandler<NextApiRequest, NextApiResponse>().post(
-	async (req, res) => {
-		if (req.body.url) {
-			res.status(404).send("")
-			return
-		}
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+	if (req.body.url) {
+		res.status(404).send("");
+		return;
+	}
 
-		const transporter = createTransport({
-			port: 465,
-			host: "smtp.gmail.com",
-			auth: {
-				user: process.env.CONTACT_AGENT_EMAIL,
-				pass: process.env.CONTACT_AGENT_PASSWORD,
-			},
-			secure: true,
-		})
+	if (req.method !== "POST") {
+		res.status(400).send("");
+		return;
+	}
 
-		const mailData: SendMailOptions = {
-			from: `Contact Manasi Parikh ${"<"}${process.env.CONTACT_AGENT_EMAIL}>`,
-			to: process.env.CONTACT_EMAIL,
-			subject: `Message from ${req.body.name}`,
-			text: req.body.subject,
-			html: `
+	const transporter = createTransport({
+		port: 465,
+		host: "smtp.gmail.com",
+		auth: {
+			user: process.env.CONTACT_AGENT_EMAIL,
+			pass: process.env.CONTACT_AGENT_PASSWORD,
+		},
+		secure: true,
+	});
+
+	const mailData: SendMailOptions = {
+		from: `Contact Manasi Parikh ${"<"}${process.env.CONTACT_AGENT_EMAIL}>`,
+		to: process.env.CONTACT_EMAIL,
+		subject: `Message from ${req.body.name}`,
+		text: req.body.subject,
+		html: `
             <!DOCTYPE html>
 			<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 			<head>
@@ -65,16 +68,13 @@ const handler = defaultHandler<NextApiRequest, NextApiResponse>().post(
 			</body>
 			</html>
             `,
+	};
+
+	transporter.sendMail(mailData, function (err) {
+		if (err) {
+			res.status(500).send("Internal server error");
+		} else {
+			res.status(200).send("Message sent successfully");
 		}
-
-		transporter.sendMail(mailData, function (err) {
-			if (err) {
-				res.status(500).send("Internal server error")
-			} else {
-				res.status(200).send("Message sent successfully")
-			}
-		})
-	}
-)
-
-export default handler
+	});
+}

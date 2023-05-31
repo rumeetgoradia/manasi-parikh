@@ -75,11 +75,11 @@ export const getStaticProps: GetStaticProps = async () => {
 	);
 	const filenames = await fs.readdir(carouselImagesDirectory);
 	const carouselImages = filenames.map(async (filename) => {
-		const { width, height } = sizeof(
-			path.join(carouselImagesDirectory, filename)
-		);
-		const src = `/images/about/carousel/${filename}`;
-		const { base64 } = await getPlaiceholder(src);
+		const src = path.join(carouselImagesDirectory, filename);
+		const buffer = await fs.readFile(src);
+
+		const { width, height } = sizeof(buffer);
+		const { base64 } = await getPlaiceholder(buffer);
 		return {
 			src,
 			width,

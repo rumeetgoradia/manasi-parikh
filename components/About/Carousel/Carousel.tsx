@@ -35,6 +35,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 							objectPosition="center center"
 							placeholder="blur"
 							blurDataURL={blurDataUrl}
+							alt={`carousel-${src}`}
 						/>
 					</Box>
 				</Box>
