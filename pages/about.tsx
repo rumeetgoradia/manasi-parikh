@@ -22,18 +22,19 @@ const CONTENT: Content[] = [
 		image: CareerImage,
 		content: (
 			<Text textStyle="paragraph">
-				Currently, I am part of Acceleration into a Financial Professional at
-				Vanguard &ndash; a 2 year Finance rotational program meant to expedite
-				Finance acumen and experience. So far I have rotated through Finance
-				Technology, Financial Planning & Analysis (FP&A) for our Marketing
-				divisions and currently working in Retail Internal Audit (RIG). Each
-				experience has been very unique, teaching me to be adaptable and how to
-				quickly get up to speed. Here are some of my highlights: In FinTech, I
-				worked with developers to build a financial database in AWS; in FP&A, I
-				created a headcount allocation model for our clients to see how their
-				costs tie to the value generated; in RIG, I am supporting the Data
-				Strategy team to implement a plan to integrate data analytics into
-				audits.{" "}
+				Currently, I work at Initiative, a marketing agency that falls under a
+				larger company named Interpublic Group Mediabrands, as a Business
+				Intelligence and Accountability Analyst. Through this position, I have
+				utilized my Tableau and data storytelling assets to create quarterly
+				campaign reports for our clients. The insights and visuals I create help
+				inform our internal stakeholders on what optimizations or decisions need
+				to be taken. I have been able to automate and redesign most of our
+				quarterly reports for both efficiency and visual appeal. Before moving
+				to the marketing industry, I was part of a finance rotational program at
+				Vanguard meant to expedite Finance acumen and experience. I rotated
+				through Finance Technology, Financial Planning & Analysis (FP&A) for our
+				Marketing divisions. Each experience was very unique and taught me to be
+				adaptable and get up to speed quickly. Here are some of my highlights:{" "}
 				<strong>
 					The common themes between all these projects is 1&#41; Data and 2&#41;
 					Creating a value-add end product and that&apos;s what I enjoy.
@@ -106,18 +107,19 @@ const AboutPage: NextPage<AboutPageProps> = ({ carouselImages }) => {
 	return (
 		<PageLayout title="About Me">
 			<Text textStyle="paragraph">
-				I graduated from Rutgers Business School in 2020 with a degree in
-				Business Analytics Information Technology and a minor in Psychology. The
-				reasons for this are simple: I enjoy putting puzzle pieces together to
-				see the bigger picture as well as decoding a problem to pinpoint where
-				the pain point is. Do both of these activities involve aching bent over
-				necks and tired eyes? Yes. But when I know the satisfaction that lies at
-				the end of the road, I am motivated to reach it. Through a professional
-				lens, my satisfaction often comes in the form of uncovering key insights
-				using data analytics, writing and running a code without errors, or
-				finishing a project that allows for optimization and efficiency. Through
-				a recreational lens, it means finishing a painting, completing a video
-				edit, or hearing myself sing on pitch.
+				My name is Manasi Parikh and I work in Marketing Analytics. The reasons
+				for this are simple: I enjoy putting puzzle pieces together to see the
+				bigger picture as well as decoding a problem to pinpoint where the pain
+				point is. Do both of these activities involve aching bent over necks and
+				tired eyes? Yes. But when I know the satisfaction that lies at the end
+				of the road, I am motivated to reach it. Through a professional lens, my
+				satisfaction often comes in the form of uncovering key insights using
+				data analytics, writing and running a code without errors, or finishing
+				a project that allows for optimization and efficiency. Through a
+				recreational lens, it means finishing a painting, completing a video
+				edit, or hearing myself sing on pitch. Overall, I believe every
+				experience should offer either a new skillset that prepares you for the
+				next step, a step I am ready to take!
 			</Text>
 			<Box mt={8}>
 				<Carousel images={carouselImages} />

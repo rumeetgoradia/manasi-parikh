@@ -59,7 +59,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 
 	return (
 		<Container
-			maxW="min(calc(100vw - 32px - 32px), var(--chakra-sizes-container-lg))"
+			maxW="min(calc(100vw - 32px - 32px), var(--chakra-sizes-container-xl))"
 			h="300px"
 			w="full"
 			position="relative"
