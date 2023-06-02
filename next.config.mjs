@@ -9,6 +9,15 @@ const config = {
 	images: {
 		domains: [],
 	},
+	async redirects() {
+		return [
+			{
+				source: "/resume",
+				destination: "/Manasi_Parikh_Resume.pdf",
+				permanent: true,
+			},
+		];
+	},
 };
 
 export default withPlaiceholder(config);

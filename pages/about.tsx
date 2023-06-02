@@ -34,10 +34,10 @@ const CONTENT: Content[] = [
 				Vanguard meant to expedite Finance acumen and experience. I rotated
 				through Finance Technology, Financial Planning & Analysis (FP&A) for our
 				Marketing divisions. Each experience was very unique and taught me to be
-				adaptable and get up to speed quickly. Here are some of my highlights:{" "}
+				adaptable and get up to speed quickly.{" "}
 				<strong>
-					The common themes between all these projects is 1&#41; Data and 2&#41;
-					Creating a value-add end product and that&apos;s what I enjoy.
+					The common themes between all these projects are 1&#41; Data and
+					2&#41; Creating a value-add end product and that&apos;s what I enjoy.
 				</strong>
 			</Text>
 		),
